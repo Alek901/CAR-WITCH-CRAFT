@@ -258,6 +258,9 @@ class Cli {
         parseInt(answers.weight),
         parseInt(answers.topSpeed),
         [],
+        this.vehicles.push(motorbike);
+        this.selectedVehicleVin = motorbike.vin;
+        this.performActions();
       });
   }
 
