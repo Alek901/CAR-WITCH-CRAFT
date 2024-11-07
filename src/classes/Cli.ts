@@ -4,6 +4,7 @@ import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
 import Wheel from "./Wheel.js";
+import { parse } from "path";
 
 // define the Cli class
 class Cli {
@@ -176,7 +177,7 @@ class Cli {
         },
       ])
       .then((answers) => {
-       const truck = new truck
+       const truck = new Truck
        Cli.generateVin(),
           answers.color,
           answers.make,
@@ -185,8 +186,11 @@ class Cli {
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
           [], 
-          
+          parseInt(answers.towingCapacity)
       });
+      this.vehicles.push(Truck);
+      this.selectedVehicleVin = Truck.vin;
+      this.performActions();
   }
 
   // method to create a motorbike
